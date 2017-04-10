@@ -1,0 +1,30 @@
+{
+  "name": "mongodb-news",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alisaschink/mongoDB-news.git"
+  },
+  "author": "alisa schink",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alisaschink/mongoDB-news/issues"
+  },
+  "homepage": "https://github.com/alisaschink/mongoDB-news#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cheerio": "^0.22.0",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.9.3",
+    "request": "^2.81.0"
+  },
+  "devDependencies": {},
+  "keywords": []
+}
