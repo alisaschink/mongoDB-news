@@ -1,8 +1,13 @@
-<ul>
-  {{#each result}}
-  <li>
-    <h2> {{this.title}}</h2>
-    <a href={{this.link}}>Read story here!</a>
-  </li>
-  {{/each}}
-</ul>
+<h1 class="page-header text-center">Huffington Post Featured Stories </h1>
+
+{{#each result}}
+  <div class="panel panel-default col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
+    <h3 class="text-center"> {{this.title}}</h3>
+    <h4 class="text-center"><a href={{this.link}}>Read story here!</a> | <a href='#'>View Comments</a></h4>
+    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"></div>
+    <form>
+      <textarea placeholder="Add a comment" class="form-control comment-body" rows="5" name="comment"></textarea>
+      <button type="submit" class="btn btn-md btn-primary submit comment-submit">Submit</button>
+    </form>
+  </div>
+{{/each}}
