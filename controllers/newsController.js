@@ -36,6 +36,18 @@ request('http://www.huffingtonpost.com/', function (error, response, html) {
 
 module.exports = router;
 
+  // Save a user to our mongoDB
+//   user.save(function(error, doc) {
+//     // Send an error to the browser
+//     if (error) {
+//       res.send(error);
+//     }
+//     // Or send the doc to our browser
+//     else {
+//       res.send(doc);
+//     }
+//   });
+// });
 
 // models.Person.findAll({
 //     include: [ models.Task ]
