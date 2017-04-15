@@ -12,7 +12,7 @@ var cheerio = require('cheerio');
 mongoose.Promise = Promise;
 
 // Controllers
-var newsController = require('./controllers/newsController');
+var storyController = require('./controllers/storyController');
 
 // Initialize Express
 var app = express();
@@ -49,7 +49,7 @@ app.engine('handlebars', exphbs({
 }));
 app.set('view engine', 'handlebars');
 
-app.use('/', newsController);
+app.use('/', storyController);
 
 // Listen on port 3000
 app.listen(3000, function() {
