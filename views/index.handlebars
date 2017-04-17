@@ -5,8 +5,10 @@
     <h3 class="text-center"> {{this.title}}</h3>
     <h4 class="text-center"><a href={{this.link}}>Read story here!</a> | <a href='#'>View Comments</a></h4>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"></div>
-    <form>
-      <textarea placeholder="Add a comment" class="form-control comment-body" rows="5" name="comment"></textarea>
+
+    <form action="/comment/submit" method="POST">
+      <input type="text" name="name" class="form-control" placeholder="name" />
+      <textarea name="comment" placeholder="Add a comment" class="form-control comment-body" rows="5" ></textarea>
       <button type="submit" class="btn btn-md btn-primary submit comment-submit">Submit</button>
     </form>
   </div>

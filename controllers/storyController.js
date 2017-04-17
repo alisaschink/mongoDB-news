@@ -47,14 +47,20 @@ router.get('/', function(req, res) {
     }) // end of .each function
   }) // end of request
   // Get all of the stories in the database
-  setTimeout(Story.find().exec(function(err, doc) {
-    if (err) {
-      res.send(err)
-    } else {
-      res.render('index', {result: doc});
-    }
-  }), 5000); 
+  var loadStories = function() {
+    Story.find().exec(function(err, doc) {
+      if (err) {
+        res.send(err)
+      } else {
+        res.render('index', {result: doc});
+      }
+    })
+  }
+  setTimeout(loadStories(), 2500); 
 }) // end of get request 
 
+router.post('/submit', function(req, res){
+
+}) // end of post request
 
 module.exports = router;

@@ -13,6 +13,7 @@ mongoose.Promise = Promise;
 
 // Controllers
 var storyController = require('./controllers/storyController');
+var commentController = require('./controllers/commentController');
 
 // Initialize Express
 var app = express();
@@ -50,6 +51,7 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars');
 
 app.use('/', storyController);
+app.use('/comment', commentController);
 
 // Listen on port 3000
 app.listen(3000, function() {
