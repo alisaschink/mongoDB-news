@@ -1,18 +1,18 @@
 <h1 class="page-header text-center">Huffington Post Featured Stories </h1>
 
-<form action="/delete"
-
 {{#each result}}
   <div class="panel panel-default col-md-offset-2 col-md-8 col-lg-offset-2 col-lg-8">
     <h3 class="text-center"> {{this.title}}</h3>
     <div class="text-center">
-    <a href={{this.url}}><button class="btn btn-primary">Read story here!</button></a> 
-    <button class="btn btn-primary" data-toggle="collapse" data-target="#accordian">View Comments</button>
+      <a href={{this.url}}><button class="btn btn-primary">Read story here!</button></a> 
     </div>
-    <div class="panel-group collapse" id="accordion" role="tablist" aria-multiselectable="true">{{this.comments}}</div>
+    <h4>Comments: </h4>
+    <div class="panel-group" role="tablist" aria-multiselectable="true">
+      <div>{{this.comments}} </div>
+    </div>
 
 
-    <form action="/comment/submit" method="POST">
+    <form action="/comment/submit/{{this._id}}" method="POST">
       <input type="text" name="name" class="form-control" placeholder="name" />
       <textarea name="comment" placeholder="Add a comment" class="form-control comment-body" rows="5" ></textarea>
       <button type="submit" class="btn btn-md btn-primary submit comment-submit">Submit</button>

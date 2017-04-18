@@ -59,6 +59,4 @@ router.get('/', function(req, res) {
   setTimeout(loadStories(), 2500); 
 }) // end of get request 
 
-
-
 module.exports = router;

@@ -6,13 +6,11 @@ var Schema = mongoose.Schema;
 
 // new Schema: NewsSchema
 var CommentSchema = new Schema({
-  // title: a trimmed, required string
-  Name: {
+  name: {
     type: String,
     trim: true,
   },
-  // url: a trimmed, required string
-  Comment: {
+  comment: {
     type: String,
     trim: true,
   },

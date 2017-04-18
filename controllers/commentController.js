@@ -4,7 +4,8 @@ var Story  = require('../models/story.js');
 var Comment  = require('../models/comments.js')
 
 
-router.post('/submit', function(req, res){
+router.post('/submit/:id', function(req, res){
+  var id = req.params.id
   var newComment = new Comment(req.body);
 
   newComment.save(function(err, doc){
@@ -14,7 +15,7 @@ router.post('/submit', function(req, res){
       console.log('comment saved')
     }
 
-    Story.findOneAndUpdate({}, { $push: { "comments": doc._id } }, { new: true }, function(error, doc) {
+    Story.findOneAndUpdate({_id: id}, { $push: { "comments": doc} }, { new: true }, function(error, doc) {
       if (error) {
         res.send(error);
       }
@@ -24,7 +25,6 @@ router.post('/submit', function(req, res){
       }
     })
   }) 
-
 }) // end of post request
 
 module.exports = router;
