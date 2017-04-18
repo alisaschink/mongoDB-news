@@ -3,19 +3,6 @@ var router  = express.Router();
 var Story  = require('../models/story.js');
 var Comment  = require('../models/comments.js')
 
-router.get("/list", function(req, res) {
-  Comment.find({}, function(error, doc) {
-    // Send an error message to the browser
-    if (error) {
-      res.send(error);
-    }
-    // Or send the doc to the browser
-    else {
-      res.send(doc);
-    }
-  });
-});
-
 
 router.post('/submit', function(req, res){
   var newComment = new Comment(req.body);
@@ -36,7 +23,6 @@ router.post('/submit', function(req, res){
         res.send(doc);
       }
     })
-    res.redirect('/')
   }) 
 
 }) // end of post request

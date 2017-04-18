@@ -7,19 +7,6 @@ var request = require('request');
 // Scrapes HTML
 var cheerio = require('cheerio');
 
-router.get("/list", function(req, res) {
-  Story.find({}, function(error, doc) {
-    // Send an error message to the browser
-    if (error) {
-      res.send(error);
-    }
-    // Or send the doc to the browser
-    else {
-      res.send(doc);
-    }
-  });
-});
-
 
 router.get('/', function(req, res) {
   // Makes a request call to grab the HTML body from Huffington Post
