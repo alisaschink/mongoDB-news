@@ -16,6 +16,7 @@ router.get("/list", function(req, res) {
   });
 });
 
+
 router.post('/submit', function(req, res){
   var newComment = new Comment(req.body);
 

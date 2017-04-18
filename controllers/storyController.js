@@ -7,6 +7,19 @@ var request = require('request');
 // Scrapes HTML
 var cheerio = require('cheerio');
 
+router.get("/list", function(req, res) {
+  Story.find({}, function(error, doc) {
+    // Send an error message to the browser
+    if (error) {
+      res.send(error);
+    }
+    // Or send the doc to the browser
+    else {
+      res.send(doc);
+    }
+  });
+});
+
 
 router.get('/', function(req, res) {
   // Makes a request call to grab the HTML body from Huffington Post
@@ -24,7 +37,7 @@ router.get('/', function(req, res) {
       // Save these results in an object 
       var newStory = new Story({
         title: title,
-        link: link
+        url: link
       });
 
       // looks for an existing news story with newStory's title
@@ -48,7 +61,7 @@ router.get('/', function(req, res) {
   }) // end of request
   // Get all of the stories in the database
   var loadStories = function() {
-    Story.find().exec(function(err, doc) {
+    Story.find().populate("comments").exec(function(err, doc) {
       if (err) {
         res.send(err)
       } else {
@@ -59,8 +72,6 @@ router.get('/', function(req, res) {
   setTimeout(loadStories(), 2500); 
 }) // end of get request 
 
-router.post('/submit', function(req, res){
 
-}) // end of post request
 
 module.exports = router;
