@@ -7,10 +7,12 @@
       <a href={{this.url}}><button class="btn btn-primary">Read story here!</button></a> 
     </div>
     <h4>Comments: </h4>
-    <div class="panel-group" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default" role="tablist" aria-multiselectable="true">
       {{#each comments}}
-      <div>Name: {{name}} </div>
-      <div>Comment: {{comment}}</div>
+      <div class="panel-body">
+        <h5 class="comment-head">Posted by {{name}} on {{dateCreated}}</h5>
+        <p>{{comment}}</p>
+      </div>
       {{/each}}
     </div>
 
