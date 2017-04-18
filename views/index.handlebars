@@ -8,7 +8,10 @@
     </div>
     <h4>Comments: </h4>
     <div class="panel-group" role="tablist" aria-multiselectable="true">
-      <div>{{this.comments}} </div>
+      {{#each comments}}
+      <div>Name: {{name}} </div>
+      <div>Comment: {{comment}}</div>
+      {{/each}}
     </div>
 
 
