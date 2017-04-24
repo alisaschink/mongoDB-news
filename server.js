@@ -1,6 +1,7 @@
 // Dependencies
 var express = require("express");
 var bodyParser = require("body-parser");
+var methodOverride = require('method-override')
 var logger = require("morgan");
 var mongoose = require("mongoose");
 // Snatches HTML from URLs
@@ -24,6 +25,9 @@ app.use(logger("dev"));
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+
+// override with POST having ?_method=DELETE 
+app.use(methodOverride('_method'))
 
 // Make public a static dir
 app.use(express.static("public"));

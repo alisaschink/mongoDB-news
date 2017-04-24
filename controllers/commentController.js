@@ -27,4 +27,23 @@ router.post('/submit/:id', function(req, res){
   }) 
 }) // end of post request
 
+router.delete('/delete/:id', function(req, res){
+  var id = req.params.id
+    Comment.remove({_id: id}, function(err, doc){
+      if (err) {
+        res.send(err)
+      } else {
+      console.log('comment removed')
+      }
+
+      Story.findOneAndUpdate({_id: id}, { $pull: { "comments": doc} }, function(error, doc) {
+        if (error) {
+          res.send(error);
+        } else {
+          res.send(doc);
+        }
+      })
+    })
+}) // end of post request
+
 module.exports = router;
